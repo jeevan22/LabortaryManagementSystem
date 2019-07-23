@@ -1,0 +1,50 @@
+﻿@model LabortaryManagementSystem.Models.TestOrderMaster
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TestOrderMaster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientMaster.PatientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientMaster.PatientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReferBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReferBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TestOrderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

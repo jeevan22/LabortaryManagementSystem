@@ -1,0 +1,82 @@
+﻿@model LabortaryManagementSystem.Models.TestsValueMaster
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TestsValueMaster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MainTest.MainTestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainTest.MainTestName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTestMaster.SubTestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubTestMaster.SubTestName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestMaster.TestMasterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestMaster.TestMasterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeGroupLessThan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeGroupLessThan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeGroupGreaterThan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeGroupGreaterThan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestMinimumValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestMinimumValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestMaximumValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestMaximumValue)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TestsValueId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

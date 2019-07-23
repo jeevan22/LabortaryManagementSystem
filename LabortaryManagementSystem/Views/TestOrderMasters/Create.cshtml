@@ -1,0 +1,144 @@
+﻿@model LabortaryManagementSystem.Models.TestOrderWithView
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>TestOrderMaster</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.OrderNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrderNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OrderNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PatientId, "PatientId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PatientId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PatientId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReferBy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReferBy, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ReferBy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.OrderDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.OrderDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.OrderDate, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <h3>
+            Select Test
+        </h3>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TestMasterId, "TestMaster", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TestMasterId", ViewBag.TestMaster as SelectList, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TestMasterId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubTestMasterId, "SubTestMaster", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SubTestMasterId", ViewBag.SubTestMaster as SelectList, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SubTestMasterId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MainTestId, "MainTest", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MainTestId", ViewBag.MainTestMaster as SelectList, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MainTestId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" , @Id="txtPrice" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    $(document).ready(function () {
+        $("#OrderNo").val(@ViewBag.Order);
+    });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#TestMasterId").change(function () {
+                $.get("/TestsValueMasters/SubTestMasterList", { TestMasterId: $("#TestMasterId").val() }, function (data) {
+                    $("#SubTestMasterId").empty();
+                    $.each(data, function (index, row) {
+                        $("#SubTestMasterId").append("<option value='" + row.SubTestMasterId + "'>" + row.SubTestName + "</option>")
+                    });
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#SubTestMasterId").change(function () {
+                $.get("/TestsValueMasters/MainTestList", { SubTestMasterId: $("#SubTestMasterId").val() }, function (data) {
+                    $("#MainTestId").empty();
+                    $.each(data, function (index, row) {
+                        $("#MainTestId").append("<option value='" + row.MainTestId + "'>" + row.MainTestName + "</option>")
+                    });
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+           // var abcd;
+            $("#MainTestId").change(function () {
+                //abcd = $("#MainTestId").val();
+                $.get("/TestOrderMasters/GetPrice", { MainTestId: $("#MainTestId").val() }, function (data) {
+                    $.each(data, function (index, row) {
+                        $("#txtPrice").val(row.Price);
+                    });
+                });    
+            });
+        });
+    </script>
+
+
+}

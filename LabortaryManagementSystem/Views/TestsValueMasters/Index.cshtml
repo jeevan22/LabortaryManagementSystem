@@ -1,0 +1,75 @@
+﻿@model IEnumerable<LabortaryManagementSystem.Models.TestsValueMaster>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MainTest.MainTestName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTestMaster.SubTestName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestMaster.TestMasterName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgeGroupLessThan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgeGroupGreaterThan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestMinimumValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestMaximumValue)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MainTest.MainTestName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubTestMaster.SubTestName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestMaster.TestMasterName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgeGroupLessThan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgeGroupGreaterThan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestMinimumValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestMaximumValue)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TestsValueId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TestsValueId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TestsValueId })
+        </td>
+    </tr>
+}
+
+</table>

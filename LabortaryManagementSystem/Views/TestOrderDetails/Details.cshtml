@@ -1,0 +1,90 @@
+﻿@model LabortaryManagementSystem.Models.TestOrderDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TestOrderDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.mainTest.MainTestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mainTest.MainTestName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patientMaster.PatientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patientMaster.PatientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.subTestMaster.SubTestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.subTestMaster.SubTestName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.testMaster.TestMasterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.testMaster.TestMasterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TechnologyId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TechnologyId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceReceived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceReceived)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.testValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.testValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DetailId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

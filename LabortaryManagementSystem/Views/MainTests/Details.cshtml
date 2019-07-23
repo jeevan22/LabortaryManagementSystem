@@ -1,0 +1,58 @@
+﻿@model LabortaryManagementSystem.Models.MainTest
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MainTest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTestMaster.SubTestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubTestMaster.SubTestName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestMaster.TestMasterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestMaster.TestMasterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainTestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainTestName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Units)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Units)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MainTestId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,88 @@
+﻿@model LabortaryManagementSystem.Models.TestsValueMaster
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TestsValueMaster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MainTest.MainTestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainTest.MainTestName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTestMaster.SubTestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubTestMaster.SubTestName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestMaster.TestMasterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestMaster.TestMasterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeGroupLessThan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeGroupLessThan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeGroupGreaterThan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeGroupGreaterThan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestMinimumValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestMinimumValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestMaximumValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestMaximumValue)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

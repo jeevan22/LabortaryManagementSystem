@@ -1,0 +1,70 @@
+﻿@model IEnumerable<LabortaryManagementSystem.Models.Report>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Billing Report</h2>
+
+@using (Html.BeginForm("Index", "Report", FormMethod.Get))
+{
+    @Html.TextBox("OrderId");
+    <input type="submit" value="Search" />
+}
+
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MasterTest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubMasterTest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MainTest1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MasterTest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubMasterTest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MainTest1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TestValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+
+
+        </tr>
+
+    }
+
+    <tr>
+        <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
+        <td class="emptyrow"></td>
+        <td class="emptyrow"></td>
+        <td class="emptyrow text-left"><strong>Total</strong></td>
+        <td class="emptyrow text-left">@*@Model.Sum(x => x.Price)*@</td>
+    </tr>
+
+</table>
+<div>
+
+</div>
+

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<LabortaryManagementSystem.Models.MainTest>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTestMaster.SubTestName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestMaster.TestMasterName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MainTestName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Units)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubTestMaster.SubTestName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestMaster.TestMasterName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MainTestName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Units)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MainTestId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MainTestId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MainTestId })
+        </td>
+    </tr>
+}
+
+</table>
